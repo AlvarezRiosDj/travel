@@ -14,3 +14,38 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+/** Rutas Administrativas */
+
+// Route::namespace('')->group(function () {
+//     // Controllers Within The "App\Http\Controllers\Admin" Namespace
+//     Route::get('','AdminController@index');
+// });
+
+
+
+
+
+// Route::prefix('admin')->name('admin.')->group(function () {
+//     Route::get('/','AdminController@index');
+
+//     Route::resource('users', 'UserController')->name('users'); 
+//     // Route::name('users.')->group(function(){
+//     //   Route::resource('users', 'UserController');  
+//     // });
+
+//         Route::prefix('users')->name('users.')->group(function(){
+//             Route::resource('users', 'UserController'); 
+//         });
+    
+    
+//     Route::resource('groups','GroupController');
+// });
+
+
+Route::prefix('admin')->group(function(){
+   Route::resource('users', 'UserController',['as' => 'admin']);  
+});
+
