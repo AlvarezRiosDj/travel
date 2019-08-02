@@ -5,25 +5,25 @@
     <div class="row">
         <div class="col-md-12">
             <br><br>
+            @include('admin.layouts.errors')
         </div>
         <div class="col-md-12">
-            {{Form::model($group, ['route' => ['admin.groups.update', $group->id],'method'=>'put','id'=>'form_guardar'])}}
+            {{ Form::open(['route' => 'admin.groups.store','id'=>'form_guardar']) }}
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            {!!Form::label('name', 'Nombres y Apellidos')!!}
+                            {!!Form::label('name', 'Nombres de grupo')!!}
                             {!!Form::text('name', null,['class'=>'form-control','required'])!!}
                         </div>
-                    </div>                  
+                    </div>                    
                 </div>
             {{ Form::close() }}
+           
         </div>
         <div class="col-md-12">
-            <a href="/groups" class="btn btn-danger">ATRAS</a> &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{{ route('admin.groups.index') }}" class="btn btn-danger">ATRAS</a> &nbsp;&nbsp;&nbsp;&nbsp;
             <button class="btn btn-primary" form="form_guardar">GUARDAR</button>
         </div>
     </div>
 </div>
 @endsection
-
-

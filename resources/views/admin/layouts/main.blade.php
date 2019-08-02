@@ -13,5 +13,6 @@
     @yield('content')
     {!!Html::script('assets/admin/js/jquery-3.4.1.min.js')!!}
     {!!Html::script('assets/admin/js/bootstrap.min.js')!!}
+    @yield('script')
 </body>
 </html>

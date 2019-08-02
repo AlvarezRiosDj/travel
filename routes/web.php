@@ -46,6 +46,7 @@ Route::get('/', function () {
 
 
 Route::prefix('admin')->group(function(){
-   Route::resource('users', 'UserController',['as' => 'admin']);  
+   Route::resource('users', 'UserController',['as' => 'admin']); 
+   Route::resource('groups','GroupController',['as'=> 'admin']);
 });
 

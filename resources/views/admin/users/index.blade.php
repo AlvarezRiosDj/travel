@@ -47,8 +47,8 @@
                             <td>{{ $user->created_at }}</td>
                             <td>{{ $user->updated_at }}</td>
                             <td>
-                                <a href="/users/{{ $user->id }}" class="btn btn-success btn-sm"> <span class="fa fa-eye"></span> </a>
-                                <a href="/users/{{ $user->id }}/edit" class="btn btn-warning btn-sm"> <span class="fa fa-edit"></span> </a>
+                             
+                                <a href="{{ route('admin.users.edit',['id'=>$user->id]) }}" class="btn btn-warning btn-sm"> <span class="fa fa-edit"></span> </a>
                             </td>
                         </tr>
                     @endforeach

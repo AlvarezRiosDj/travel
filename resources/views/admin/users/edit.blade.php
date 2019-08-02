@@ -19,9 +19,9 @@
 
         </div>
         <div class="col-md-12">
-            {{Form::model($usuario, ['url' => ['/users', $usuario->id],'method'=>'put','id'=>'form_guardar'])}}
+            {{Form::model($user, ['route' => ['admin.users.update', $user->id],'method'=>'put','id'=>'form_guardar'])}}
                 <div class="row">
-                    @include('users.form')
+                    @include('admin.users.form')
                     <div class="col-md-12">
                         <div class="form-group">
                             {!!Form::label('status', 'Contraseña')!!}
@@ -32,7 +32,7 @@
                     <div class="col-md-3">
                         <form action="">
                             <select name="select_group[]" id="select_group" class="form-control" multiple size="10">
-                                @foreach($grupos as $grupo)
+                                @foreach($groups as $group)
                                     
                                     @php
                                         $existencia = 'no';
@@ -40,7 +40,7 @@
 
                                     @foreach($grupos_usuarios as $g)                                        
 
-                                        @if($grupo->id == $g->id)
+                                        @if($group->id == $g->id)
                                             @php
                                                 $existencia = 'si';
                                             @endphp                                            
@@ -49,7 +49,7 @@
                                     @endforeach
 
                                     @if($existencia=='no')
-                                        <option value="{{ $grupo->id }}">{{ $grupo->name  }}</option>
+                                        <option value="{{ $group->id }}">{{ $group->name  }}</option>
                                     @endif
 
 
@@ -77,7 +77,7 @@
             <div class="row justify-content-end">
                 <div class="col-md-2">
                     <br>
-                    <a href="/users" class="btn btn-danger">ATRAS</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{{ route('admin.users.index') }}" class="btn btn-danger">ATRAS</a> &nbsp;&nbsp;&nbsp;&nbsp;
                     <button class="btn btn-primary" id="btn_guardar_form" form="form_guardar">GUARDAR</button>
                 </div>
             </div>            
@@ -90,7 +90,7 @@
 
 @section('script')
 <script>
-
+    
 
     var select_group = document.getElementById('select_group'),
     select_group_add = document.getElementById('select_group_add')
@@ -98,7 +98,6 @@
 
    document.getElementById('btn_add_group').addEventListener('click',()=>{
 
-       
 
        for(let i=0;i<select_group.options.length;i++)
        {
