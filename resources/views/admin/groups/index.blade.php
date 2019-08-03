@@ -1,5 +1,8 @@
 @extends('admin.layouts.main')
 
+
+@section('title','Lista de grupos')
+
 @section('content')
 <div class="container">
     <div class="row">

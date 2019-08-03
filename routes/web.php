@@ -11,6 +11,38 @@
 |
 */
 
+
+
+Route::get('mifuncion','PublicController@mifuncion');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -48,5 +80,6 @@ Route::get('/', function () {
 Route::prefix('admin')->group(function(){
    Route::resource('users', 'UserController',['as' => 'admin']); 
    Route::resource('groups','GroupController',['as'=> 'admin']);
+   Route::resource('languages','LanguageController',['as'=> 'admin']);
 });
 

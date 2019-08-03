@@ -6,9 +6,6 @@
 
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.users.index') }}">Users</a>
       </li>
@@ -16,7 +13,7 @@
         <a class="nav-link" href="{{ route('admin.groups.index') }}">Groups</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
+        <a class="nav-link" href="{{ route('admin.languages.index') }}">Languages</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">

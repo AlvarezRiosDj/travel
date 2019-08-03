@@ -82,7 +82,6 @@ class GroupController extends Controller
 
         return redirect()->route('admin.groups.index')->with('status','El grupo <strong>'.$group->name.'</strong> ha sido actualizado correctamente');
 
-
     }
 
     /**
