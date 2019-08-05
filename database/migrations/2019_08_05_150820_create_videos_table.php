@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLanguagesTable extends Migration
+class CreateVideosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,14 @@ class CreateLanguagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('languages', function (Blueprint $table) {
-            $table->string('abbr',2)->primary();
-            $table->string('name',20)->unique();            
-            $table->string('flag',500);
+        Schema::create('videos', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name',100);
+            $table->string('description',500);
+            $table->string('size');
+            $table->string('format',10);
+            $table->string('duration',100);
+            $table->string('path',200);
             $table->boolean('status')->default(true);
             $table->timestamps();
         });
@@ -29,6 +33,6 @@ class CreateLanguagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('languages');
+        Schema::dropIfExists('videos');
     }
 }

@@ -13,7 +13,7 @@ class StoreLanguage extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class StoreLanguage extends FormRequest
     public function rules()
     {
         return [
-            
+            'abbr'=>'required|unique:languages,abbr',
+            'name'=>'required',
+            'flag'=>'required|image',
         ];
     }
 }

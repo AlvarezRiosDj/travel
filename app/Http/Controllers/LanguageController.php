@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Language;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreLanguage;
 
 class LanguageController extends Controller
 {
@@ -14,7 +15,8 @@ class LanguageController extends Controller
      */
     public function index()
     {
-        return view('admin.languages.index');
+        $languages = Language::all();
+        return view('admin.languages.index',['languages'=>$languages]);
     }
 
     /**
@@ -33,7 +35,7 @@ class LanguageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreLanguage $request)
     {
         
         if ($request->hasFile('flag')) {
@@ -42,8 +44,18 @@ class LanguageController extends Controller
             $extension = $file->getClientOriginalExtension();
             $fileName = time().'.'.$extension;
             $file->move(public_path('content/'.$anio,'/'),$fileName);
-
+            $path = 'content/'.$anio.'/'.$fileName;
         }
+
+
+        Language::create([
+            'abbr'=>$request->abbr,
+            'name'=>$request->name,
+            'flag'=>$path,
+        ]);
+        
+        return redirect()->route('admin.languages.index')->with('status','Lenguaje creado con exito');
+
     }
 
     /**
@@ -65,7 +77,9 @@ class LanguageController extends Controller
      */
     public function edit(Language $language)
     {
-        //
+    
+        return view('admin.languages.edit',['language'=>$language]);
+
     }
 
     /**

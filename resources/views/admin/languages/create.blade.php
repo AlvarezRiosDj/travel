@@ -7,6 +7,7 @@
     <div class="row">
         <div class="col-md-12">
             <br>
+            @include('admin.layouts.errors')
         </div>
         <div class="col-md-12">
             {{ Form::open(['route'=>'admin.languages.store','files' => true,'id'=>'form_guardar']) }}
@@ -38,7 +39,7 @@
         </div>
         <div class="col-md-12">
             <br>
-            <a href="" class="btn btn-danger">ATRAS</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{{ route('admin.languages.index') }}" class="btn btn-danger">ATRAS</a>&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="btn btn-primary" form="form_guardar">GUARDAR</button>
         </div>
     </div>

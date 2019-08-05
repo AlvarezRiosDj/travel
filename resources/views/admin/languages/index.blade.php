@@ -16,19 +16,25 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <td>ID</td>
-                        <td>NOMBRE</td>
-                        <td>CREADO</td>
-                        <td>ACTUALIZADO</td>
+                        <th>ABBR</th>
+                        <th>NOMBRE</th>
+                        <th>CREADO</th>
+                        <th>ACTUALIZADO</th>
+                        <th>ACCIONES</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    @foreach($languages as $language)
+                        <tr>
+                            <td>{{ $language->abbr }}</td>
+                            <td>{{ $language->name }}</td>
+                            <td>{{ $language->created_at }}</td>
+                            <td>{{ $language->updated_at }}</td>
+                            <td>
+                                <a href="{{ route('admin.languages.edit',['id'=>$language->abbr]) }}" class="btn btn-warning btn-sm"> <span class="fa fa-edit"></span> </a>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
