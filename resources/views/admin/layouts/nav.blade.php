@@ -15,6 +15,9 @@
       <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.languages.index') }}">Languages</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.categories.index') }}">Languages</a>
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Search">

@@ -15,8 +15,15 @@
             </p>
         </div>
         <div class="col-md-12">
-            {{Form::model($language,['route' => ['admin.languages.update',$language->abbr],'method'=>'PUT','id'=>'form_guardar'])}}
+            {{Form::model($language,['route' => ['admin.languages.update',$language->abbr],'method'=>'PUT','id'=>'form_guardar','files' => true])}}
                 <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="custom-file">
+                            <input type="file" name="flag" class="custom-file-input" id="customFile" accept="image/*" onchange="loadFile(event)">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                    </div>  
 
                     <div class="col-md-12 text-center">
                         <br>
@@ -49,3 +56,21 @@
     </div>
 </div>
 @endsection
+
+
+@section('script')
+<script>
+    
+
+  var loadFile = function(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+      var output = document.getElementById('output');
+      output.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  };
+</script>
+
+@endsection
+

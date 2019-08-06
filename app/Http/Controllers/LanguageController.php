@@ -47,7 +47,6 @@ class LanguageController extends Controller
             $path = 'content/'.$anio.'/'.$fileName;
         }
 
-
         Language::create([
             'abbr'=>$request->abbr,
             'name'=>$request->name,
