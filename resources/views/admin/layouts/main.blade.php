@@ -15,6 +15,11 @@
     {!!Html::script('assets/admin/js/jquery-3.4.1.min.js')!!}
     {!!Html::script('assets/admin/js/bootstrap.min.js')!!}
     {!!Html::script('https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js')!!}
+    <script>
+        $(document).ready(function () {
+                bsCustomFileInput.init()
+            })
+    </script>
     @yield('script')
 </body>
 </html>

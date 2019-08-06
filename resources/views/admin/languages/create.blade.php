@@ -55,9 +55,7 @@
 
 @section('script')
 <script>
-    $(document).ready(function () {
-        bsCustomFileInput.init()
-    })
+    
 
   var loadFile = function(event) {
     var reader = new FileReader();

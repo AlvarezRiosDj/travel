@@ -91,7 +91,50 @@ class LanguageController extends Controller
      */
     public function update(Request $request, Language $language)
     {
-        //
+        
+    
+        if($request->abbr != $language->abbr)
+        {
+            $this->validate($request,[
+                'abbr'=>'required|unique:languages,abbr'
+            ]);
+        }
+
+
+        if($request->hasFile('flag'))
+        {
+            if(\File::exists(public_path($language->flag))){
+                \File::delete(public_path($language->flag));               
+            }
+
+            $anio = date("Y");
+            $file = $request->file('flag');
+            $extension = $file->getClientOriginalExtension();
+            $fileName = time().'.'.$extension;
+            $file->move(public_path('content/'.$anio,'/'),$fileName);
+            $path = 'content/'.$anio.'/'.$fileName;
+
+
+            $language->fill([
+                'abbr'=>$request->abbr,
+                'name'=>$request->name,
+                'flag'=>$path,
+                'status'=>$request->status,
+            ]);
+
+        }else{
+            $language->fill([
+                'abbr'=>$request->abbr,
+                'name'=>$request->name,
+                'status'=>$request->status,
+            ]);
+        }
+        
+        $language->save();
+
+
+        return redirect()->route('admin.languages.index')->with('status','Lenguage <strong>'. $language->name .'</strong> actualizado exitosamente');
+
     }
 
     /**
