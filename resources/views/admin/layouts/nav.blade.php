@@ -16,7 +16,7 @@
         <a class="nav-link" href="{{ route('admin.languages.index') }}">Languages</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('admin.categories.index') }}">Languages</a>
+        <a class="nav-link" href="{{ route('admin.categories.index') }}">Categorias</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">

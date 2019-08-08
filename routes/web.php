@@ -64,6 +64,7 @@ Route::prefix('admin')->group(function(){
    Route::resource('users', 'UserController',['as' => 'admin']); 
    Route::resource('groups','GroupController',['as'=> 'admin']);
    Route::resource('languages','LanguageController',['as'=> 'admin']);
+   Route::resource('categories','CategoryController',['as'=> 'admin']);
 //    Route::resource('itineraries','')
    Route::resource('multimedias','MultimediaController',['as'=> 'admin']);
 });

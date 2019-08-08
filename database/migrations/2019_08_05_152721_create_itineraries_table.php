@@ -17,7 +17,7 @@ class CreateItinerariesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name',100);
             $table->text('description');
-            $table->integer('nro_dia');
+            $table->integer('number_day');
             $table->timestamps();
         });
     }
